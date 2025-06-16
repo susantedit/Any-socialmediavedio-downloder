@@ -595,6 +595,127 @@
         ::-webkit-scrollbar-thumb:hover {
             background: var(--text-muted);
         }
+        /* Existing styles unchanged until this point */
+
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .download-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-item:hover {
+            transform: translateY(-6px) scale(1.02);
+            border-color: var(--border);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .download-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), #ec4899);
+            transition: width 0.3s ease;
+        }
+
+        .download-item:hover::before {
+            width: 120%;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes featureFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feature {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 1rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: featureFadeIn 0.6s ease-out forwards;
+        }
+
+        .feature:nth-child(1) { animation-delay: 0.1s; }
+        .feature:nth-child(2) { animation-delay: 0.2s; }
+        .feature:nth-child(3) { animation-delay: 0.3s; }
+        .feature:nth-child(4) { animation-delay: 0.4s; }
+        .feature:nth-child(5) { animation-delay: 0.5s; }
+        .feature:nth-child(6) { animation-delay: 0.6s; }
+
+        .feature:hover {
+            transform: translateY(-6px);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 15px 30px rgba(139, 92, 246, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover .feature-icon {
+            transform: scale(1.1);
+        }
+
+        .feature-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .features {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -723,31 +844,42 @@
             </div>
 
             <!-- Features Section -->
-            <div class="card">
-                <h2 style="margin-bottom: 1.5rem; font-weight: 600; color: var(--text-primary);">Features</h2>
-                <div class="features">
-                    <div class="feature">
-                        <div class="feature-icon">🎯</div>
-                        <h3 class="feature-title">Auto Detection</h3>
-                        <p class="feature-description">Automatically detects platform and content type</p>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">📱</div>
-                        <h3 class="feature-title">All Content</h3>
-                        <p class="feature-description">Videos, photos, stories, reels, and more</p>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">📦</div>
-                        <h3 class="feature-title">Bulk Downloads</h3>
-                        <p class="feature-description">Download multiple URLs simultaneously</p>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">🔒</div>
-                        <h3 class="feature-title">Privacy First</h3>
-                        <p class="feature-description">All processing done on your server</p>
-                    </div>
-                </div>
-            </div>
+<div class="card">
+    <h2 style="margin-bottom: 1.5rem; font-weight: 600; color: var(--text-primary);">Features</h2>
+    <div class="features">
+        <div class="feature">
+            <div class="feature-icon">🎯</div>
+            <h3 class="feature-title">Auto Detection</h3>
+            <p class="feature-description">Automatically detects platform and content type</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">📱</div>
+            <h3 class="feature-title">All Content</h3>
+            <p class="feature-description">Videos, photos, stories, reels, and more</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">📦</div>
+            <h3 class="feature-title">Bulk Downloads</h3>
+            <p class="feature-description">Download multiple URLs simultaneously</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🔒</div>
+            <h3 class="feature-title">Privacy First</h3>
+            <p class="feature-description">All processing done on your server</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">⚡</div>
+            <h3 class="feature-title">Fast Processing</h3>
+            <p class="feature-description">Lightning-fast downloads with minimal waiting time</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🌐</div>
+            <h3 class="feature-title">Cross-Platform</h3>
+            <p class="feature-description">Supports Windows, macOS, Linux, and mobile devices</p>
+        </div>
+    </div>
+</div>
+
         </main>
     </div>
 
@@ -1011,6 +1143,12 @@
         });
 
         console.log('🚀 Modern Social Media Downloader loaded!');
+
+         // Existing script remains unchanged
+    document.addEventListener('DOMContentLoaded', function () {
+        createParticles();
+        console.log('🚀 Modern Social Media Downloader loaded!');
+    });
     </script>
 </body>
 </html>
