@@ -3,3 +3,4 @@ requests==2.31.0
 yt-dlp==2024.05.26
 instaloader==4.11.0
 Werkzeug==2.3.7
+gunicorn
