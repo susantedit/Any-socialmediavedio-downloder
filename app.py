@@ -13,7 +13,7 @@ import zipfile
 import shutil
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your-secret-key-here-change-this'
+app.config['SECRET_KEY'] = 'susant'
 
 # Create downloads directory if it doesn't exist
 DOWNLOAD_DIR = os.path.join(os.getcwd(), 'downloads')

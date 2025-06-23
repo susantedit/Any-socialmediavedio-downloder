@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Media Downloader</title>
+   <link rel="static\bluetran.png" href="static\bluetran.png" type="image/x-icon">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='bluetran.png') }}">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
@@ -164,6 +166,7 @@
             margin-bottom: 3rem;
             padding-top: 2rem;
         }
+        
 
         .logo {
             font-size: 3rem;
@@ -738,7 +741,8 @@
     
     <div class="container">
         <header class="header">
-            <h1 class="logo">Downloader</h1>
+          <img src="{{ url_for('static', filename='bluetran.png') }}" alt="bluetran.png" style="height:64px;">
+            <h1 class="logo">Susant Downloader</h1>
             <p class="tagline">Download content from any social media platform</p>
             
             <div class="platforms">
